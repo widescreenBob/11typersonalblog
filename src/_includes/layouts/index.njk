@@ -1,0 +1,50 @@
+---
+layout: layouts/base
+title: Index of my cool site
+---
+<div class="homepage__container">
+  <div class="homepage__upper">
+    <section class="homepage__main">
+      {% include "components/about.njk" %}
+      <h2>Latest</h2>
+      <ul class="homepage__blog-list">
+      {%- for post in collections.post -%}
+        <li><a href="{{ post.url }}"><h3 class="homepage__blog-title">{{ post.data.post_title }}</h3></a>
+            <div class="homepage__blog-date"> {{ page.date.toDateString() }} </div>
+        </li>
+      {%- endfor -%}
+      </ul>
+      <h2>Recent Projects</h2>
+      <ul class="homepage__recent-pro-list">
+      {%- for project in collections.projects -%}
+        <li>
+          <h3 class="homepage__recent-pro-title">
+            {{ project.data.project_title }}
+          </h3>
+          <ul>
+            {%- for item in project.data.project_details %}
+              <li>{{ item }}</li>
+            {% endfor -%}
+          </ul>
+        </li>
+      {%- endfor -%}
+      </ul>
+    </section>
+    <aside class="homepage__rail">
+      {% include "components/reading_list.njk" %}
+      {% include "components/quests.njk" %}
+    </aside>
+  </div>
+  <div class="homepage__lower">
+    <section class="homepage__illustration">
+      <h2> Illustrations</h2>
+      <ul class="homepage__illustration-list">
+      {%- for illustration in collections.illustration -%}
+        <li>
+          <button class="js-modal button homepage__illustration-button" data-modal-prefix-class="simple" data-modal-text="<img src='{{ illustration.data.image | safe}}'>" data-modal-title="{{ illustration.data.post_title }}" data-modal-close-text="Close" data-modal-close-title="Close this window" id="illustraiton-modal-1" aria-haspopup="dialog"><span class="visually-hidden">Open Larger version of image of {{ illustration.data.title }} illustration</span><img class="homepage__illustration-image--small" src=".{{ illustration.data.image }}"></button>
+        </li>
+      {%- endfor -%}
+      </ul>
+    </section>
+  </div>
+</div>

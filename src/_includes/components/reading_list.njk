@@ -1,0 +1,24 @@
+<section class="reading-list-section">
+  <h2>Reading List</h2>
+
+  <h3>Upcoming Reads</h3>
+  <ul>
+  {%- for item in reading_list_proposed %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+
+  <h3>Current</h3>
+  <ul>
+  {%- for item in reading_list_current  %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+
+  <h3>Recently Read</h3>
+  <ul>
+  {%- for item in reading_list_recent  %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+</section>

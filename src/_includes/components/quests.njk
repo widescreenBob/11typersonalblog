@@ -1,0 +1,25 @@
+<section class="knowledge-list-section">
+  <h2>Knowledge Quest</h2>
+
+  <h3>Upcoming Quests</h3>
+  <ul>
+  {%- for item in quests_proposed %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+
+  <h3>Ongoing Quests</h3>
+  <ul>
+  {%- for item in quests_current %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+
+  <h3>Quests Completed</h3>
+  <ul>
+  {%- for item in quests_recent %}
+    <li>{{ item }}</li>
+  {% endfor -%}
+  </ul>
+</section>
+

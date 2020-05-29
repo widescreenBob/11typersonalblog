@@ -1,0 +1,12 @@
+<section class="api-data-list-section">
+  <h2>API data</h2>
+  <h3>Asterix Characters</h3>
+  <ul>
+    {% for person in test_data %}
+    <li>
+      <div>{{ person.name }}</div>
+      <div>{{ person.role }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

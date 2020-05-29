@@ -7,3 +7,4 @@ date: 2020-05-09
 ---
 
 This is the content
+[Link3000](/link3000.html)

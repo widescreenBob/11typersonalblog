@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Third Post</title>
+    <title>Creating this site with eleventy part 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -50,16 +50,84 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> This is the third piece of content </h2>
-  <div class="post__date"> Fri May 08 2020 </div>
+  <h2> Creating this site with eleventy part 2 </h2>
+  <div class="post__date"> Tue May 26 2020 </div>
   <div class="post__image">
-    <img src='' alt='The 11ty logo'>
+    <img src='/img/11tyBlog.jpg' alt='The 11ty logo'>
   </div>
   <section class="l-two-col-70-30">
   <div class="l-two-col-left">
     <div class="post__content">
-      <p>This is the content<br>
-<a href="/link3000.html">Link3000</a></p>
+      <h3>How I complicated a simple tool.</h3>
+<p>There is nothing quite like making something simple, vastly more complicated. To this end I added build tools to this site.</p>
+<p>Here is the <a href="https://github.com/widescreenBob/11typersonalblog">Github</a> repo with the code.</p>
+<h4>What I wanted to achieve:</h4>
+<ul>
+<li>Write scss and compile this to css.</li>
+<li>Write modern js and run this through babel.</li>
+<li>Lint my scss and js.</li>
+<li>Use browsersync to refresh content and style changes</li>
+</ul>
+<p>I am using NPM and NVM as I am familiar with it. Most of my needs were met through gulp and node packages. Here is the breakdown of the packages by the task that I used them for.</p>
+<p><strong>Compiling scss:</strong></p>
+<ul>
+<li>sass</li>
+<li>gulp</li>
+<li>gulp-sass</li>
+<li>gulp-postcss</li>
+<li>gulp-cssnano</li>
+<li>browser-sync</li>
+</ul>
+<p><strong>Processing js:</strong></p>
+<ul>
+<li>sourcemaps</li>
+<li>gulp-sourcemaps</li>
+<li>gulp</li>
+<li>gulp-babel</li>
+<li>browser-sync</li>
+<li>gulp-rename</li>
+</ul>
+<p><strong>Lint Scss:</strong></p>
+<ul>
+<li>gulp-stylelint</li>
+</ul>
+<p><strong>Lint JS:</strong></p>
+<ul>
+<li>gulp-eslint</li>
+</ul>
+<p>For linting, there are a couple of extra configs. There is a eslintrc.json and stylelingrc.yml that provide the rules used for linting both scss and js.</p>
+<h4>Fun things that came up:</h4>
+<p>I approached these in the order that I have them here, not because it made the most sense, it absolutely didn't, but more because I was just trying to see what would work as it occured to me.</p>
+<p><strong>Compiling scss:</strong> Getting this working was actually pretty straight forward. I think that there is some work to be done in the gulp.js file to update it to be more gulp 4 friendly, but this went pretty smoothly.</p>
+<p>The first thing I did was change the default file structure of eleventy to be something that I am more familiar with. I wanted my source files to be in the src directory and the compiled files in the dist file.</p>
+<p>Eleventy comes with a unique file named eleventy.js that allows you to override some of the default settings. This is my current file:</p>
+<code>
+  module.exports = function (eleventyConfig) {<br/>
+    &nbsp;&nbsp;eleventyConfig.addPassthroughCopy("src/img");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;let markdownIt = require("markdown-it");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;let options = {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html: true,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;breaks: true,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linkify: true<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;};<br/>
+    &nbsp;&nbsp;eleventyConfig.setLibrary("md", markdownIt(options));<br/>
+    &nbsp;&nbsp;return {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;dir: {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: 'src',<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: 'dist'<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;markdownTemplateEngine: 'njk',<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+  }<br/>
+</code>
+<p>So this has a few things in it, first the pass through, which just tells the site I need the images in the dist folder in a comparable location. So if I add an image to src/img it will be copied to dist/img.</p>
+<p>Next is a markdown extenstion I installed to make writing in makrdown a little easier, described <a href="https://www.11ty.dev/docs/languages/markdown/">here</a>.</p>
+<p>Next we see the environment specifics that I want to use. I have redefined the default input and output to src and dist, to allow me to use the structure I am used to. Wooo. We are also declaring the templating language as nunchucks.</p>
+<p>At this point I made a dev command to watch for changes, and I included the command from eleventy that serves the site (using their version of browsersync): <code>eleventy --serv</code></p>
+<p>This at first seemed to be working great, I was able to trace my src files through to the dist files. However I was not able to get css changes to auto reload. Refreshing the page worked for the changes, but that was not ideal.</p>
+<p>I searched around the web, and didn't find a specific fix for my issue. I susepect that it might be possible to hook into eleventy's browsersync but I couldn't find any specifics on how I might go about this.  I decided to look at adding browsersync myself. After installing the packages I updated my <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/gulpfile.js">gulp tasks</a> with the browser-sync code.</p>
+<p>In the package.json I now call evelenty --watch vs serve. This allows eleventy to do it's regular check for changes to files it cares about but does not boot up a local server. The gulp file defines the browsersync tasks to ensure any changes to our js or scss now trigger an update.</p>
+<p>Magic.</p>
 
     </div>
   </div>
@@ -67,11 +135,11 @@
   <ul>
   <h3>Other Posts</h3>
       <li><a href="/blog-posts/setting-up-this-site/"><h4 class="homepage__blog-title">Creating this site with eleventy</h4></a>
-          <div class="homepage__blog-date"> Fri May 08 2020 </div>
+          <div class="homepage__blog-date"> Tue May 26 2020 </div>
       </li>
     
-      <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
-          <div class="homepage__blog-date"> Fri May 08 2020 </div>
+      <li><a href="/blog-posts/post-three/"><h4 class="homepage__blog-title">This is the third piece of content</h4></a>
+          <div class="homepage__blog-date"> Tue May 26 2020 </div>
       </li>
     </ul>
   </div>

@@ -3,6 +3,27 @@ layout: layouts/base
 ---
 <div class="post__container">
   <h2> {{ post_title }} </h2>
-  {{  date.toDateString()}}
-  {{ content | safe }}
-</div>THIS
+  <div class="post__date"> {{  date.toDateString()}} </div>
+  <div class="post__image">
+    <img src='{{ post_image }}' alt='The 11ty logo'>
+  </div>
+  <section class="l-two-col-70-30">
+  <div class="l-two-col-left">
+    <div class="post__content">
+      {{ content | safe }}
+    </div>
+  </div>
+  <div class="l-two-col-right">
+  <ul>
+  <h3>Other Posts</h3>
+  {%- for post in collections.post -%}
+    {% if page.url !== post.url %}
+      <li><a href="{{ post.url }}"><h4 class="homepage__blog-title">{{ post.data.post_title }}</h4></a>
+          <div class="homepage__blog-date"> {{ page.date.toDateString() }} </div>
+      </li>
+    {% endif %}
+  {%- endfor -%}
+  </ul>
+  </div>
+</div>
+

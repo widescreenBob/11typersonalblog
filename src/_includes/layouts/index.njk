@@ -10,7 +10,7 @@ title: Index of my cool site
       <ul class="homepage__blog-list">
       {%- for post in collections.post -%}
         <li><a href="{{ post.url }}"><h3 class="homepage__blog-title">{{ post.data.post_title }}</h3></a>
-            <div class="homepage__blog-date"> {{ page.date.toDateString() }} </div>
+            <div class="homepage__blog-date"> {{ post.date.toDateString() }} </div>
         </li>
       {%- endfor -%}
       </ul>

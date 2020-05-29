@@ -1,14 +1,44 @@
-//Colors
-$site-main: #e8e7e0;
-$site-body-text: #333;
-$site-red: #c5532f;
-$site-blue: #0d4663;
-$site-black: #000;
-$site-white: #fff;
+
+:root {
+  --site-main: #e8e7e0;
+  --body-text: #333;
+  --site-red: #c5532f;
+  --site-blue: #0d4663;
+  --site-black: #000;
+  --site-white: #fff;
+}
 
 //Fonts
 $site-font-title:'Open Sans Condensed', sans-serif;
 $site-font-body: 'Open Sans', sans-serif;
+
+//https://css-tricks.com/snippets/css/fluid-typography/
+$min_width: 320px;
+$max_width: 1200px;
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
 
 //Breakpoints
 $bp-sm: 450px;
@@ -33,8 +63,8 @@ html {
 }
 
 body {
-  background: $site-main;
-  color: $site-body-text;
+  background: var(--site-main);
+  color: var(--body-text);
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -48,18 +78,19 @@ h3,
 h4 {
   line-height: 1;
   text-transform: uppercase;
-  color: $site-red;
+  color: var(--site-red);
   font-family: $site-font-title;
   font-weight: bold;
   margin: 2rem 0 1rem;
 }
 
 h1 {
-  font-size: 4.5rem;
+
+  @include fluid-type($min_width, $max_width, 42px, 88px);
 }
 
 h2 {
-  font-size: 3rem;
+  @include fluid-type($min_width, $max_width, 38px, 48px);
   position: relative;
 
   &::after {
@@ -73,7 +104,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  @include fluid-type($min_width, $max_width, 28px, 32px);
 }
 
 h4 {
@@ -81,13 +112,22 @@ h4 {
 }
 
 a {
-  color: $site-red;
+  color: var(--site-red);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: $site-blue;
+    color: var(--site-blue);
   }
+}
+
+code {
+  background-color: #f3f3f3;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  display: block;
+  width: auto;
+  border-left: 4px solid var(--site-black);
 }
 
 ul,
@@ -132,20 +172,20 @@ li {
 
   svg path {
     transition: fill 0.8s linear;
-    fill: $site-red;
+    fill: var(--site-red);
   }
 
   &:hover,
   &:focus {
 
     svg path {
-      fill: $site-blue;
+      fill: var(--site-blue);
     }
   }
 }
 
 .header__bar {
-  background-color: $site-red;
+  background-color: var(--site-red);
   width: 1000%;
   height: 70px;
   margin-right: -100%;
@@ -164,6 +204,25 @@ li {
   bottom: -10px;
   width: 100%;
   left: 8px;
+}
+
+/* Layout */
+
+.l-two-col-70-30 {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($bp-md) {
+    flex-direction: row;
+  }
+}
+
+.l-two-col-left {
+  width: 100%;
+  @include breakpoint($bp-md) {
+    width: calc(80% - 3rem);
+    margin-right: 3rem;
+  }
 }
 
 // Homepage Layout
@@ -198,16 +257,20 @@ li {
 .homepage__blog-list,
 .homepage__recent-pro-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
   gap: 1rem;
-  border-bottom: 7px solid $site-blue;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border-bottom: 7px solid var(--site-blue);
   padding-bottom: 2rem;
+
+  @include breakpoint($bp-md) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .homepage__blog-date {
   font-weight: bold;
-  color: $site-blue;
+  color: var(--site-blue);
 }
 
 .homepage__blog-title {
@@ -233,7 +296,7 @@ dialog {
   bottom: 0;
   right: 0;
   left: 0;
-  background: $site-body-text;
+  background: var(--body-text);
   opacity: 0.8;
   z-index: 666;
   cursor: pointer;
@@ -251,8 +314,8 @@ dialog {
   transform: translateX(-50%);
   top: 5%;
   max-height: 98vh;
-  border: 2px solid $site-red;
-  background: #fff;
+  border: 2px solid var(--site-red);
+  background: var(--site-white);
   z-index: 667;
   padding: 2rem;
   right: auto;
@@ -266,9 +329,9 @@ dialog {
 
 .simple-modal-close {
   float: right;
-  background: $site-red;
+  background: var(--site-red);
   border-radius: 0;
-  color: $site-white;
+  color: var(--site-white);
   border: 0;
   font: inherit;
   padding: 0.5rem;
@@ -278,12 +341,12 @@ dialog {
 .simple-modal-close:focus,
 .simple-modal-close:hover,
 .simple-modal-close:active {
-  outline: 1px dotted $site-white;
+  outline: 1px dotted var(--site-white);
 }
 
 .simple-modal-close:hover,
 .simple-modal-close:active {
-  background: $site-black;
+  background: var(--site-black);
 }
 
 .homepage__illustration-image--small {
@@ -302,16 +365,52 @@ dialog {
 .about-section,
 .reading-list-section {
   padding-bottom: 2rem;
-  border-bottom: 7px solid $site-blue;
+  border-bottom: 7px solid var(--site-blue);
+}
+
+.about-section__text {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .homepage__illustration-list {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
-  border-bottom: 7px solid $site-blue;
+  border-bottom: 7px solid var(--site-blue);
   padding-bottom: 2rem;
   border: 0;
+
+  @include breakpoint($bp-md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Posts */
+
+.post__date {
+  font-weight: bold;
+  color: var(--site-blue);
+}
+
+.post__image {
+  margin: 2rem 0;
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+.post__content {
+  ul {
+    padding: 0 0 0 1rem;
+
+    li {
+      list-style-type: disc;
+      margin: 0 0 0 1rem;
+    }
+  }
 }

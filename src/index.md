@@ -1,6 +1,7 @@
 ---
 layout: layouts/index.njk
-about_text: Ut enim ad misnim veniam, quis nostrud exercitation. Excepteur sint obcaecat cupiditat non proident culpa. Plura   mihi bona sunt, inclinet, amari petere vellent. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Quisque ut dolor gravida, placerat libero vel, euismod. Idque Caesaris facere voluntate liceret
+title: Tobias Williams Site
+about_text: Welcome to my site... I am the Director of Front-End Development at Mediacurrent where I have worked for the last 7 years. Born in Wales, residing in North East Florida. Go Jags!
 reading_list_proposed:
   - Leaders Eat Last - Simon Sinek
   - Good Authority - Jonathan Raymond

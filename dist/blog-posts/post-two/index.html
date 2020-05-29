@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Second Post</title>
+    <title>Setting up the site part 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -12,7 +12,7 @@
 <header role="banner">
   <div class="header">
     <div class="header__upper">
-      <h1>Tobias Williams</h1>
+      <h1><a href="/" aria-label="Home page">Tobias Williams</a></h1>
     </div>
     <div class="header__lower">
       <div class="header__social">
@@ -50,11 +50,31 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> This is the second piece of content </h2>
-  Thu May 07 2020
-  <p>This is the content</p>
+  <h2> Setting up this site part 2 </h2>
+  <div class="post__date"> Tue May 26 2020 </div>
+  <div class="post__image">
+    <img src='/img/11tyBlog.jpg' alt='The 11ty logo'>
+  </div>
+  <section class="l-two-col-70-30">
+  <div class="l-two-col-left">
+    <p>This is the content</p>
 
-</div>THIS
+  </div>
+  <div class="l-two-col-right">
+  <ul>
+  <h3>Other Posts</h3>
+      <li><a href="/blog-posts/setting-up-this-site/"><h4 class="homepage__blog-title">Creating this site with eleventy</h4></a>
+          <div class="homepage__blog-date"> Tue May 26 2020 </div>
+      </li>
+    
+      <li><a href="/blog-posts/post-three/"><h4 class="homepage__blog-title">This is the third piece of content</h4></a>
+          <div class="homepage__blog-date"> Tue May 26 2020 </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
     </section>
     <footer>
       <script src="./js/test.js"></script>

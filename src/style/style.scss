@@ -320,15 +320,30 @@ dialog {
   padding: 2rem;
   right: auto;
   overflow: auto;
-  max-width: 95vw;
+  max-width: 900px;
 }
 
-.simple-modal__content img {
-  width: 100%;
+.simple-modal__content {
+  width: 80vw;
+  height: 50vh;
+
+  @include breakpoint($bp-md) {
+    width: 60vw;
+    height: 80vh;
+  }
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.simple-modal__wrapper {
+  position: relative;
 }
 
 .simple-modal-close {
-  float: right;
   background: var(--site-red);
   border-radius: 0;
   color: var(--site-white);
@@ -336,6 +351,9 @@ dialog {
   font: inherit;
   padding: 0.5rem;
   cursor: pointer;
+  position: absolute;
+  right: -21px;
+  top: -21px;
 }
 
 .simple-modal-close:focus,
@@ -405,6 +423,7 @@ dialog {
 }
 
 .post__content {
+
   ul {
     padding: 0 0 0 1rem;
 

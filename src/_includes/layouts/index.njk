@@ -9,7 +9,7 @@ title: Index of my cool site
       <h2>Latest</h2>
       <ul class="homepage__blog-list">
       {%- for post in collections.post -%}
-        <li><a href="{{ post.url }}"><h3 class="homepage__blog-title">{{ post.data.post_title }}</h3></a>
+        <li><h3 class="homepage__blog-title"><a href="{{ post.url }}">{{ post.data.post_title }}</a></h3>
             <div class="homepage__blog-date"> {{ post.date.toDateString() }} </div>
         </li>
       {%- endfor -%}
@@ -41,7 +41,7 @@ title: Index of my cool site
       <ul class="homepage__illustration-list">
       {%- for illustration in collections.illustration -%}
         <li>
-          <button class="js-modal button homepage__illustration-button" data-modal-prefix-class="simple" data-modal-text="<img src='{{ illustration.data.image | safe}}'>" data-modal-title="" data-modal-close-text="Close" data-modal-close-title="Close this window" id="illustraiton-modal-1" aria-haspopup="dialog"><span class="visually-hidden">Open Larger version of image of {{ illustration.data.title }} illustration</span><img class="homepage__illustration-image--small" src=".{{ illustration.data.image }}"></button>
+          <button class="js-modal button homepage__illustration-button" data-modal-prefix-class="simple" data-modal-text="<img src='{{ illustration.data.image | safe}}' alt='{{ illustration.data.post_title }}'>" data-modal-title="" data-modal-close-text="Close" data-modal-close-title="Close this window" id="illustraiton-modal-1" aria-haspopup="dialog"><span class="visually-hidden">Open Larger version of image of {{ illustration.data.title }} illustration</span><img class="homepage__illustration-image--small" src=".{{ illustration.data.image }}"></button>
         </li>
       {%- endfor -%}
       </ul>

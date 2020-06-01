@@ -316,17 +316,12 @@ dialog {
   left: 50%;
   transform: translateX(-50%);
   top: 5%;
-  max-height: 98vh;
   border: 2px solid var(--site-red);
   background: var(--site-white);
   z-index: 667;
   padding: 2rem;
   right: auto;
   overflow: auto;
-  max-width: 900px;
-}
-
-.simple-modal__content {
   width: 80vw;
   height: 50vh;
 
@@ -334,6 +329,10 @@ dialog {
     width: 60vw;
     height: 80vh;
   }
+}
+
+.simple-modal__content {
+  height: 100%;
 
   img {
     object-fit: contain;
@@ -344,6 +343,7 @@ dialog {
 
 .simple-modal__wrapper {
   position: relative;
+  height: 100%;
 }
 
 .simple-modal-close {

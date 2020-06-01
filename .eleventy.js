@@ -1,6 +1,5 @@
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/img");
   let markdownIt = require("markdown-it");
   let options = {
     html: true,

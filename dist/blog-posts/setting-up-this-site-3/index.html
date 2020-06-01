@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"s>
   <head>
-    <title>Creating this site with eleventy</title>
+    <title>Creating this site with eleventy part 3</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -50,39 +50,31 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> Creating this site with eleventy </h2>
-  <div class="post__date"> Mon May 25 2020 </div>
+  <h2> Creating this site with eleventy part 3 </h2>
+  <div class="post__date"> Sat May 30 2020 </div>
   <div class="post__image">
     <img src='/img/11tyBlog.jpg' alt='The 11ty logo'>
   </div>
   <section class="l-two-col-70-30">
   <div class="l-two-col-left">
     <div class="post__content">
-      <h3>What is eleventy?</h3>
-<p><a href="https://www.11ty.dev/">11ty</a> is a simple static site generator that can use multiple templating languages to generate pages using markdown.</p>
-<h3>Why did I use eleventy?</h3>
-<p>I am lucky to work on sites all day, for the last few years this has been drupal based. However when it comes to maintaining a full drupal install for my personal site seemed a little bit of overkill. With an eye on using the best tool for the job I have tried a couple of solutions.</p>
-<p>First I went to a service that was either wix or something like it, I can't recall. This was a decentish solution, in that it was easy for me to set up, and move things around however there were limitations. If I didn't want to pay for a theme, which I was already at $30 a month, my options were limited. At first I thought I was ok with this, but as my time went on, I found that I was just getting annoyed with the arbitary style choices made and lack of flexibity.</p>
-<p>So where next? My requirements through trial and error appear to be:</p>
-<ul>
-<li>Easy to maintain and update.</li>
-<li>Flexible for styling.</li>
-<li>Lower cost of hosting.</li>
-</ul>
-<p>From here, my plan was to look at <a href="https://www.gatsbyjs.org/">Gatsby</a> and their new admin interface. When I mentioned this to a work colleague they pointed me at eleventy. Reading through the docs I expected to be put off by some minor workflow issue, however I was really impressed by how straight forward the process it was. Following these <a href="https://www.11ty.dev/docs/tutorials/">steps</a> I was able to spin up a simple site.</p>
-<p>In the next post, I will talk about how I went about making the simple process more complicated... because it seemed like fun.</p>
+      <h3>Images and image sizes.</h3>
+<p>In the previous post I talked about passing images through from my src folder to my dist folder. This is a neat option that 11ty lets us do for files that we need to provide for our site, but don't need to act on.</p>
+<p>When building the site, I looked around for a way to auto generate a src set of images to allow the site to serve images sized to the need of the person viewing the page. I was however unable to find a way to create the required images.</p>
+<p>As a stop gap, until I can find the solution I want to get to I have added <a href="https://www.npmjs.com/package/gulp-imagemin">imagemin</a> to my build process.</p>
+<p>To get this working, I added a image-min task to the <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/gulpfile.js">gulp.js</a> file. I also added this task to the build task, I think that this is likely better than adding it to the watch task, as I don't need this happening a lot. The image optimization will need to be called prior to a commit, but it should be clear if I forget as the request will 404.</p>
 
     </div>
   </div>
   <div class="l-two-col-right">
   <ul>
   <h3>Other Posts</h3>
-      <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
-          <div class="homepage__blog-date"> Mon May 25 2020 </div>
+      <li><a href="/blog-posts/setting-up-this-site/"><h4 class="homepage__blog-title">Creating this site with eleventy</h4></a>
+          <div class="homepage__blog-date"> Sat May 30 2020 </div>
       </li>
     
-      <li><a href="/blog-posts/setting-up-this-site-3/"><h4 class="homepage__blog-title">Creating this site with eleventy part 3</h4></a>
-          <div class="homepage__blog-date"> Mon May 25 2020 </div>
+      <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
+          <div class="homepage__blog-date"> Sat May 30 2020 </div>
       </li>
     </ul>
   </div>

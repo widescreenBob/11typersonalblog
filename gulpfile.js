@@ -7,6 +7,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 
 // The css command that compiles the scss to css and moves it to dist.
@@ -82,5 +83,14 @@ gulp.task('lint-js', function lintJsTask() {
     .pipe(eslint.format());
 });
 
+// Minify the images.
+gulp.task('min-image', function minImageTask() {
+
+  return gulp
+    .src('src/img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/img'));
+});
+
 // The build command lints scss, lints js, compile js, compiles css.
-gulp.task('build', gulp.parallel('lint-scss', 'lint-js', 'js', 'css'));
+gulp.task('build', gulp.parallel('lint-scss', 'lint-js', 'js', 'css', 'min-image'));

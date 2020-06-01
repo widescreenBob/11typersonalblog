@@ -41,7 +41,7 @@ title: Index of my cool site
       <ul class="homepage__illustration-list">
       {%- for illustration in collections.illustration -%}
         <li>
-          <button class="js-modal button homepage__illustration-button" data-modal-prefix-class="simple" data-modal-text="<img src='{{ illustration.data.image | safe}}' alt='{{ illustration.data.post_title }}'>" data-modal-title="" data-modal-close-text="Close" data-modal-close-title="Close this window" id="illustraiton-modal-1" aria-haspopup="dialog"><span class="visually-hidden">Open Larger version of image of {{ illustration.data.title }} illustration</span><img class="homepage__illustration-image--small" src=".{{ illustration.data.image }}"></button>
+          <button class="js-modal button homepage__illustration-button" data-modal-prefix-class="simple" data-modal-alt='{{ illustration.data.alt_text }}' data-modal-text="<img src='{{ illustration.data.image | safe}}' alt='{{ illustration.data.post_title }}'>" data-modal-title="" data-modal-close-text="Close" data-modal-close-title="Close this window" id="illustraiton-modal-1" aria-haspopup="dialog"><span class="visually-hidden">Open Larger version of image of {{ illustration.data.title }} illustration</span><img class="homepage__illustration-image--small" src=".{{ illustration.data.image }}"></button>
         </li>
       {%- endfor -%}
       </ul>

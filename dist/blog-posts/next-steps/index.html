@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"s>
   <head>
-    <title>Creating this site with eleventy part 3</title>
+    <title>What now, and trying not to run out of gas.</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -50,19 +50,21 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> Creating this site with eleventy part 3 </h2>
-  <div class="post__date"> Sat May 30 2020 </div>
+  <h2> What now, and trying not to run out of gas. </h2>
+  <div class="post__date"> Sun Jul 05 2020 </div>
   <div class="post__image">
-    <img src='/img/11tyBlog.jpg' alt='The 11ty logo'>
+    <img src='/img/whereNowBlog.jpg' alt='The 11ty logo'>
   </div>
   <section class="l-two-col-70-30">
   <div class="l-two-col-left">
     <div class="post__content">
-      <h3>Images and image sizes.</h3>
-<p>In the previous post I talked about passing images through from my src folder to my dist folder. This is a neat option that 11ty lets us do for files that we need to provide for our site, but don't need to act on.</p>
-<p>When building the site, I looked around for a way to auto generate a src set of images to allow the site to serve images sized to the need of the person viewing the page. I was however unable to find a way to create the required images.</p>
-<p>As a stop gap, until I can find the solution I want to get to I have added <a href="https://www.npmjs.com/package/gulp-imagemin">imagemin</a> to my build process.</p>
-<p>To get this working, I added a image-min task to the <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/gulpfile.js">gulp.js</a> file. I also added this task to the build task, I think that this is likely better than adding it to the watch task, as I don't need this happening a lot. The image optimization will need to be called prior to a commit, but it should be clear if I forget as the request will 404.</p>
+      <h3>What now, and trying not to run out of gas.</h3>
+<p>So it's  been a month. My fear with making sites is losing steam after the publication.</p>
+<p>So what are my goals now?</p>
+<p>I think what I want to do is get to all the things that I read about and want to circle back to, but for whatever reason never get the chance to do.</p>
+<p>For now, I think that looks like updating the gulp file to make sure it is gulp 4 compliant. It works, I am just not sure it should.</p>
+<p>After that I think I want to look at build tests.</p>
+<p>So here we go...</p>
 
     </div>
   </div>
@@ -70,15 +72,15 @@
   <ul>
   <h3>Other Posts</h3>
       <li><a href="/blog-posts/setting-up-this-site/"><h4 class="homepage__blog-title">Creating this site with eleventy</h4></a>
-          <div class="homepage__blog-date"> Sat May 30 2020 </div>
+          <div class="homepage__blog-date"> Sun Jul 05 2020 </div>
       </li>
     
       <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
-          <div class="homepage__blog-date"> Sat May 30 2020 </div>
+          <div class="homepage__blog-date"> Sun Jul 05 2020 </div>
       </li>
     
-      <li><a href="/blog-posts/next-steps/"><h4 class="homepage__blog-title">What now, and trying not to run out of gas.</h4></a>
-          <div class="homepage__blog-date"> Sat May 30 2020 </div>
+      <li><a href="/blog-posts/setting-up-this-site-3/"><h4 class="homepage__blog-title">Creating this site with eleventy part 3</h4></a>
+          <div class="homepage__blog-date"> Sun Jul 05 2020 </div>
       </li>
     </ul>
   </div>
@@ -87,7 +89,7 @@
 
     </section>
     <footer>
-      <script src="./js/addAltText.js"></script>
+      <script src="./js/test.js"></script>
       <script src="./js/modal.js"></script>
     </footer>
   </body>

@@ -19,7 +19,8 @@ reading_list_recent:
 quests_proposed:
   - Mediacurrent Gatsby Course
 quests_current:
-  - Eleventy Static Site
+  - Gulp 4 secrets
 quests_recent:
+- Eleventy Static Site
 - React for Beginners - Wes Bos
 ---

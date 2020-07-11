@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp build & gulp watch & eleventy --watch",
+    "dev": "gulp build & gulp watchFiles & eleventy --watch",
     "watch": "gulp watch & eleventy --watch",
     "build": "gulp build && eleventy",
-    "lintJS": "gulp lint-js",
+    "lintJS": "gulp lintJs",
+    "css": "gulp css",
     "javas": "gulp js",
-    "images": "gulp min-image"
+    "images": "gulp images",
+    "gulp": "gulp"
   },
   "keywords": [],
   "author": "",

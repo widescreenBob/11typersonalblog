@@ -4,7 +4,7 @@ tags: post
 title: What now, and trying not to run out of gas.
 post_title: What now, and trying not to run out of gas.
 post_image: /img/whereNowBlog.jpg
-date: 2020-07-06
+date: 2020-07-07
 ---
 
 ### What now, and trying not to run out of gas.

@@ -19,7 +19,6 @@ layout: layouts/base
   {%- for post in collections.post -%}
     {% if page.url !== post.url %}
       <li><a href="{{ post.url }}"><h4 class="homepage__blog-title">{{ post.data.post_title }}</h4></a>
-          <div class="homepage__blog-date"> {{ page.date.toDateString() }} </div>
       </li>
     {% endif %}
   {%- endfor -%}

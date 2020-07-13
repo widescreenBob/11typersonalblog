@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"s>
   <head>
-    <title>Creating this site with eleventy part 3</title>
+    <title>Updating my gulp tasks</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -50,20 +50,58 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> Creating this site with eleventy part 3 </h2>
-  <div class="post__date"> Sat May 30 2020 </div>
+  <h2> Updating my gulp tasks </h2>
+  <div class="post__date"> Fri Jul 10 2020 </div>
   <div class="post__image">
-    <img src='/img/11tyBlog.jpg' alt='The 11ty logo'>
+    <img src='/img/gulpBlog.jpg' alt='The 11ty logo'>
   </div>
   <section class="l-two-col-70-30">
   <div class="l-two-col-left">
     <div class="post__content">
-      <h3>Images and image sizes.</h3>
-<p>In the previous post I talked about passing images through from my src folder to my dist folder. This is a neat option that 11ty lets us do for files that we need to provide for our site, but don't need to act on.</p>
-<p>When building the site, I looked around for a way to auto generate a src set of images to allow the site to serve images sized to the need of the person viewing the page. I was however unable to find a way to create the required images.</p>
-<p>As a stop gap, until I can find the solution I want to get to I have added <a href="https://www.npmjs.com/package/gulp-imagemin">imagemin</a> to my build process.</p>
-<p>To get this working, I added a image-min task to the <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/gulpfile.js">gulp.js</a> file. I also added this task to the build task, I think that this is likely better than adding it to the watch task, as I don't need this happening a lot. The image optimization will need to be called prior to a commit, but it should be clear if I forget as the request will 404.</p>
-
+      <h3>Updating my gulp tasks to gulp 4 format.</h3>
+<p>I have a tendancy to set and forget build tools. They work, or seem to, why is a question for the philosophers. However, with the change from gulp 3 to 4 I was keen to make sure I had at least a basic understanding of what that looked like, and make sure that I was taking advantage of what gulp 4 could offer.</p>
+<p>One of the most useful features is the ability to run tasks in series, or in parallel. The more complex or larger the build, the longer build tasks can take. Tasks that can occur at the same time should now use the parallel syntax, allowing us to reduce the build time.</p>
+<code>
+gulp.parallel('scripts', 'styles')
+</code>
+<p>Series, by contrast, allows you to set the order of the tasks so you can ensure one is completed before the next is run.</p>
+<code>
+gulp.series('scripts', 'styles')
+</code>
+<p>So interesting, it seems like I was partly there. I was using the parallel and series syntax. There was an opportunity for me to use named functions vs the node 3.9 gulp.task declarations I was using.</p>
+<p>My old task:<br>
+<code><br>
+gulp.task('min-image', function minImageTask() {<br>
+  return gulp<br>
+    .src('src/img/*')<br>
+    .pipe(imagemin())<br>
+    .pipe(gulp.dest('dist/img'));<br>
+});<br>
+</code></p>
+<p>The updated task:<br>
+<code><br>
+function minImageTask() {<br>
+  return gulp<br>
+    .src('src/img/*')<br>
+    .pipe(imagemin())<br>
+    .pipe(gulp.dest('dist/img'));<br>
+}<br>
+<br/><br>
+exports.images = minImageTask;<br>
+</code></p>
+<p>Some things to note, any exported functions will be registered into gulp's task system. So above we are exporting images, and in our package.json file we have:<br>
+<code><br>
+scripts {<br>
+  &quot;images&quot;: &quot;gulp images&quot;,<br>
+}<br>
+</code></p>
+<p>So you can see we have access to the task in a similar way that we did in gulp 3.9.</p>
+<p>For my build task which is the only complex multitask I added a const to store the task:</p>
+<code>
+const build = gulp.parallel(lintScss, lintJs, js, css, minImageTask);
+<br/>
+exports.build = build;
+</code>
     </div>
   </div>
   <div class="l-two-col-right">
@@ -75,10 +113,10 @@
       <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
       </li>
     
-      <li><a href="/blog-posts/next-steps/"><h4 class="homepage__blog-title">What now, and trying not to run out of gas.</h4></a>
+      <li><a href="/blog-posts/setting-up-this-site-3/"><h4 class="homepage__blog-title">Creating this site with eleventy part 3</h4></a>
       </li>
     
-      <li><a href="/blog-posts/updating-gulp-file/"><h4 class="homepage__blog-title">Updating my gulp tasks</h4></a>
+      <li><a href="/blog-posts/next-steps/"><h4 class="homepage__blog-title">What now, and trying not to run out of gas.</h4></a>
       </li>
     </ul>
   </div>

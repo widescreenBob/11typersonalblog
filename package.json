@@ -13,7 +13,9 @@
     "javas": "gulp js",
     "images": "gulp images",
     "gulp": "gulp",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:project": "cypress run --record --key 0cf920de-c77c-4dff-baaa-825266cc8834",
+    "cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "",

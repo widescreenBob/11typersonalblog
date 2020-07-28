@@ -25,6 +25,7 @@
     "fs-extra": "^9.0.0",
     "gulp-watch": "^5.0.1",
     "latest": "^0.2.0",
+    "markdown-it-attrs": "^3.0.3",
     "sass": "^1.26.5"
   },
   "babel": {

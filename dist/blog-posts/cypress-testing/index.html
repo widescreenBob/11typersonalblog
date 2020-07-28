@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"s>
   <head>
-    <title>Updating my gulp tasks</title>
+    <title>Cypress Testing</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -50,58 +50,45 @@
 </header>
     <section class="main" role="main" id="main-content">
       <div class="post__container">
-  <h2> Updating my gulp tasks </h2>
-  <div class="post__date"> Fri Jul 10 2020 </div>
+  <h2> Cypress Testing </h2>
+  <div class="post__date"> Mon Jul 20 2020 </div>
   <div class="post__image">
-    <img src='/img/gulpBlog.jpg' alt='The 11ty logo'>
+    <img src='/img/cypressBlog.jpg' alt='The 11ty logo'>
   </div>
   <section class="l-two-col-70-30">
   <div class="l-two-col-left">
     <div class="post__content">
-      <h3>Updating my gulp tasks to gulp 4 format.</h3>
-<p>I have a tendancy to set and forget build tools. They work, or seem to, why is a question for the philosophers. However, with the change from gulp 3 to 4 I was keen to make sure I had at least a basic understanding of what that looked like, and make sure that I was taking advantage of what gulp 4 could offer.</p>
-<p>One of the most useful features is the ability to run tasks in series, or in parallel. The more complex or larger the build, the longer build tasks can take. Tasks that can occur at the same time should now use the parallel syntax, allowing us to reduce the build time.</p>
+      <h3>Adding testing using <a href="http://Cypress.io">Cypress.io</a></h3>
+<p>I've been wanting to dig into build tests for a while. I was excited to try <a href="http://cypress.io">cypress.io</a> as it is open source and Javascript. I think the thing that interests me about adding tests is that it really makes you think about how the code you are writing should work.</p>
+<p>So let us get rolling on this.</p>
+<p>Cypress has really good <a href="https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements">docs</a>! Woo for that.</p>
+<p>As this had a node package, I was able to leverage our current set up to get this installed.</p>
+<p>So without retyping the entire docs, I got the dashboard working and I tied it to my git repo for this product.</p>
+<p>The cypress dashboard is pretty neat:<br>
+<img src="/img/cypressDash.png" alt="Cypress Dash" width="70%" class="post__blog-image"></p>
+<p>Here you can see the tests we have written (more details soon). You can also specify what browser the tests are run in. Clicking the the test name will kick it off, and open the browser while it runs the tests in real time:<br>
+<img src="/img/cypressTest.png" alt="Cypress Test" width="70%" class="post__blog-image"></p>
+<p>To add tests, you use the cypress/integration folder.<br>
+My test file lives <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/cypress/integration/social_test.js">here</a>. Right now this test is testing all the social links, to make sure that each of them has the correct pathing.</p>
+<p>Briefly we are telling cypress to go to our homepage to test:</p>
 <code>
-gulp.parallel('scripts', 'styles')
+describe('social links test', function () {
+&nbsp;&nbsp;beforeEach(function () {
+&nbsp;&nbsp;&nbsp;&nbsp;cy.visit('https://widescreenbob.com/')
+&nbsp;&nbsp;})
 </code>
-<p>Series, by contrast, allows you to set the order of the tasks so you can ensure one is completed before the next is run.</p>
+<p>When it gets there, we want to test our social links:</p>
 <code>
-gulp.series('scripts', 'styles')
+context('testing the twitter', function () {
+&nbsp;&nbsp;it('Checks to see if the twitter link contains the base url', function () {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;cy.get('.twitter')<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.should('have.attr', 'href')<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.and('include', 'twitter.com')<br/>
+&nbsp;&nbsp;})
+})
 </code>
-<p>So interesting, it seems like I was partly there. I was using the parallel and series syntax. There was an opportunity for me to use named functions vs the node 3.9 gulp.task declarations I was using.</p>
-<p>My old task:<br>
-<code><br>
-gulp.task('min-image', function minImageTask() {<br>
-  return gulp<br>
-    .src('src/img/*')<br>
-    .pipe(imagemin())<br>
-    .pipe(gulp.dest('dist/img'));<br>
-});<br>
-</code></p>
-<p>The updated task:<br>
-<code><br>
-function minImageTask() {<br>
-  return gulp<br>
-    .src('src/img/*')<br>
-    .pipe(imagemin())<br>
-    .pipe(gulp.dest('dist/img'));<br>
-}<br>
-<br/><br>
-exports.images = minImageTask;<br>
-</code></p>
-<p>Some things to note, any exported functions will be registered into gulp's task system. So above we are exporting images, and in our package.json file we have:<br>
-<code><br>
-scripts {<br>
-  &quot;images&quot;: &quot;gulp images&quot;,<br>
-}<br>
-</code></p>
-<p>So you can see we have access to the task in a similar way that we did in gulp 3.9.</p>
-<p>For my build task which is the only complex multitask I added a const to store the task:</p>
-<code>
-const build = gulp.parallel(lintScss, lintJs, js, css, minImageTask);
-<br/>
-exports.build = build;
-</code>
+<p>So lets see what that looks like on a pr</p>
+
     </div>
   </div>
   <div class="l-two-col-right">
@@ -119,7 +106,7 @@ exports.build = build;
       <li><a href="/blog-posts/next-steps/"><h4 class="homepage__blog-title">What now, and trying not to run out of gas.</h4></a>
       </li>
     
-      <li><a href="/blog-posts/cypress-testing/"><h4 class="homepage__blog-title">Cypress Testing</h4></a>
+      <li><a href="/blog-posts/updating-gulp-file/"><h4 class="homepage__blog-title">Updating my gulp tasks</h4></a>
       </li>
     </ul>
   </div>

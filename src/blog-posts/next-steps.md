@@ -9,7 +9,7 @@ date: 2020-07-07
 
 ### What now, and trying not to run out of gas.
 
-So it's  been a month. My fear with making sites is losing steam after the publication.
+So it's been a month. My fear with making sites is losing steam after the publication.
 
 So what are my goals now?
 

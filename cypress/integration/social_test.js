@@ -1,5 +1,5 @@
 
-
+//Test all our social link
 describe('social links test', function () {
   beforeEach(function () {
     cy.visit('https://widescreenbob.com/')

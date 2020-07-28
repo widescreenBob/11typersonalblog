@@ -49,5 +49,8 @@ context('testing the twitter', function () {
 })
 </code>
 
-So lets see what that looks like on a pr
+So lets see what that looks like on a pr in git:
 
+![Cypress Git](/img/cypressGit.png){width="70%"}{.post__blog-image}
+
+You can see that cypress is part of our pre merge checks. This is a great start to our testing program. Right now, you can see our test isn't doing anything useful, as it is testing against the live site. So our next adventure will be extending this.

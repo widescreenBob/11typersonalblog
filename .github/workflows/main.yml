@@ -6,9 +6,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Install dependencies 📦
-        # we could simply run "npm ci" but that would not cache dependencies
-        # thus we can use this 3rd party action
         uses: bahmutov/npm-install@v1
       - name: Cypress run
         uses: cypress-io/github-action@v1

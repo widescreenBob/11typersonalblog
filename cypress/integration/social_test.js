@@ -2,7 +2,7 @@
 //Test all our social link
 describe('social links test', function () {
   beforeEach(function () {
-    cy.visit('https://widescreenbob.com/')
+    cy.visit('http://localhost:3000')
   })
 
   context('testing the twitter', function () {

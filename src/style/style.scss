@@ -439,4 +439,14 @@ dialog {
 
 .post__blog-image {
   margin: 1rem 0;
+  border-bottom: 6px solid var(--site-red);
 }
+
+.footer-text {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  color: var(--site-red);
+  padding: 2rem 0;
+}
+

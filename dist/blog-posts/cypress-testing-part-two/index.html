@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"s>
   <head>
-    <title>Major Stock Exchange</title>
+    <title>Cypress Testing Part Two</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/style.css">
@@ -49,11 +49,61 @@
   </div>
 </header>
     <section class="main" role="main" id="main-content">
-      <div class="project__container">
-  <h2> Major Stock Exchange </h2>
-  <p>This is the content</p>
+      <div class="post__container">
+  <h2> Cypress Testing 2 </h2>
+  <div class="post__date"> Sun Aug 09 2020 </div>
+  <div class="post__image">
+    <img src='/img/cypressBlog.jpg' alt='The 11ty logo'>
+  </div>
+  <section class="l-two-col-70-30">
+  <div class="l-two-col-left">
+    <div class="post__content">
+      <h3>Upgrading Our Testing</h3>
+<p>When we left off we had set up cypress testing. Our test was against our live site and was testing at the point of our pr (if we had recorded the test).</p>
+<p>Our goal however is to test our code before it goes live, which is probably more useful.</p>
+<p>So back to our cypress <a href="https://www.cypress.io/blog/2019/11/20/drastically-simplify-your-testing-with-cypress-github-action/">docs</a>. This describes what we want to do pretty accurately.</p>
+<p>What we need to do is add a github action here: <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/.github/workflows/main.yml">.github/workflows/main.yml</a></p>
+<p>You can see our action takes three steps, first checkout as described by the cypres docs.</p>
+<p>Step two:<br>
+<code><br>
+uses: bahmutov/npm-install@v1<br>
+  with:<br>
+      useLockFile: false<br>
+</code></p>
+<p>This is the part that I was erroring on the most, what this is doing is installing our sites node packages. This allows the build to use the site for testing. I referenced this <a href="https://github.com/cypress-io/github-action/blob/master/.github/workflows/main.yml">codebase</a> to find an example that better fit my need.</p>
+<p>Step three runs the cypress tests that we have defined.</p>
+<p>Here is what the successful test looks like in github:<br>
+<img src="/img/cypresstestGH.png" alt="Cypress Test" width="70%" class="post__blog-image"><br>
+You can see that the tasks defined in our actions reflected here, and importantly that it passed.</p>
+<p>Ok, so now we have a way to test our code, against a temporary site pre merge. Now we can start expanding our testing.</p>
 
+    </div>
+  </div>
+  <div class="l-two-col-right">
+  <ul>
+  <h3>Other Posts</h3>
+      <li><a href="/blog-posts/setting-up-this-site/"><h4 class="homepage__blog-title">Creating this site with eleventy</h4></a>
+      </li>
+    
+      <li><a href="/blog-posts/setting-up-this-site-2/"><h4 class="homepage__blog-title">Creating this site with eleventy part 2</h4></a>
+      </li>
+    
+      <li><a href="/blog-posts/setting-up-this-site-3/"><h4 class="homepage__blog-title">Creating this site with eleventy part 3</h4></a>
+      </li>
+    
+      <li><a href="/blog-posts/next-steps/"><h4 class="homepage__blog-title">What now, and trying not to run out of gas.</h4></a>
+      </li>
+    
+      <li><a href="/blog-posts/updating-gulp-file/"><h4 class="homepage__blog-title">Updating my gulp tasks</h4></a>
+      </li>
+    
+      <li><a href="/blog-posts/cypress-testing/"><h4 class="homepage__blog-title">Cypress Testing</h4></a>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
     </section>
     <footer>
       <div class="footer-text">Since 2020.</div>

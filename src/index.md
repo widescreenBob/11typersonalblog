@@ -19,8 +19,10 @@ reading_list_recent:
 quests_proposed:
   - Mediacurrent Gatsby Course
 quests_current:
-  - Gulp 4 secrets
+  - Gatsby Site with Netlify CMS
 quests_recent:
+- Cypress Testing
+- Gulp 4 secrets
 - Eleventy Static Site
 - React for Beginners - Wes Bos
 ---

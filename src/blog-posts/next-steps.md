@@ -4,7 +4,9 @@ tags: post
 title: What now, and trying not to run out of gas.
 post_title: What now, and trying not to run out of gas.
 post_image: /img/whereNowBlog.jpg
+post_teaser_image: /img/gasCans4x3.jpg
 date: 2020-07-07
+post_teaser: Did we hit a wall? Now the main dev work is done we need to find tasks to create content and also to work on those things we have always wanted to do.
 ---
 
 ### What now, and trying not to run out of gas.

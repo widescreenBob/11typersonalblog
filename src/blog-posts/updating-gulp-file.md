@@ -4,7 +4,9 @@ tags: post
 title: Updating my gulp tasks
 post_title: Updating my gulp tasks
 post_image: /img/gulpBlog.jpg
+post_teaser_image: /img/gulpBlog4x3.jpg
 date: 2020-07-11
+post_teaser: In this post we review our gulp.js file and look for improvements to our syntax. Our site works, but the never ending task of improving our code continues.
 ---
 
 ### Updating my gulp tasks to gulp 4 format.

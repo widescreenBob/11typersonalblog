@@ -1,0 +1,41 @@
+---
+layout: layouts/base
+---
+<div class="post__container">
+  <h2>Read My Blog?</h2>
+  {%- for post in collections.post | reverse -%}
+    {% if page.url !== post.url %}
+      {% if loop.first %}
+        <div class="post__first-post">
+          <div class="post__image">
+            <div class="post__latest"><span>LATEST</span></div>
+            <img src='{{ post.data.post_image }}' alt='The 11ty logo'>
+          </div>
+          <div class="post__first-data">
+            <a href="{{ post.url }}"><h4 class="homepage__blog-title">{{ post.data.post_title }}</h4></a>
+            <div class="homepage__blog-date"> {{ post.date.toDateString() }}</div>
+            <div class="post__first-teaser">
+              {{ post.data.post_teaser }}
+            </div>
+          </div>
+        </div>
+        {# The list starts here, inside the if statement for the if first. #}
+        <ul class= "post__collection-list">
+      {% else %}
+        <li class="post__collection-item">
+          <div class="post__collection-item--left">
+            <img src='{{ post.data.post_teaser_image }}' alt='The 11ty logo'>
+          </div>
+          <div class="post__collection-item--right">
+            <a href="{{ post.url }}"><h4 class="post__blog-title">{{ post.data.post_title }}</h4></a>
+            <div class="homepage__blog-date">{{ post.date.toDateString() }}</div>
+            <div class="post__teaser">
+              {{ post.data.post_teaser }}
+            </div>
+          </div>
+        </li>
+      {% endif %}
+    {% endif %}
+  {%- endfor -%}
+  </ul>
+</div>

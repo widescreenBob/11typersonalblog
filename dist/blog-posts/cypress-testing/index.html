@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"s>
+<html lang="en">
   <head>
     <title>Cypress Testing</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -65,9 +65,9 @@
 <p>As this had a node package, I was able to leverage our current set up to get this installed.</p>
 <p>So without retyping the entire docs, I got the dashboard working and I tied it to my git repo for this product.</p>
 <p>The cypress dashboard is pretty neat:<br>
-<img src="/img/cypressDash.png" alt="Cypress Dash" width="70%" class="post__blog-image"></p>
+<img src="/img/cypressDash.png" alt="Cypress Dash" width="100%" class="post__blog-image"></p>
 <p>Here you can see the tests we have written (more details soon). You can also specify what browser the tests are run in. Clicking the the test name will kick it off, and open the browser while it runs the tests in real time:<br>
-<img src="/img/cypressTest.png" alt="Cypress Test" width="70%" class="post__blog-image"></p>
+<img src="/img/cypressTest.png" alt="Cypress Test" width="100%" class="post__blog-image"></p>
 <p>To add tests, you use the cypress/integration folder.<br>
 My test file lives <a href="https://github.com/widescreenBob/11typersonalblog/blob/master/cypress/integration/social_test.js">here</a>. Right now this test is testing all the social links, to make sure that each of them has the correct pathing.</p>
 <p>Briefly we are telling cypress to go to our homepage to test:</p>
@@ -88,7 +88,7 @@ context('testing the twitter', function () {
 })
 </code>
 <p>So lets see what that looks like on a pr in git:</p>
-<p><img src="/img/cypressGit.png" alt="Cypress Git" width="70%" class="post__blog-image"></p>
+<p><img src="/img/cypressGit.png" alt="Cypress Git" width="100%" class="post__blog-image"></p>
 <p>You can see that cypress is part of our pre merge checks. This is a great start to our testing program. Right now, you can see our test isn't doing anything useful, as it is testing against the live site. So our next adventure will be extending this.</p>
 
     </div>
@@ -120,7 +120,7 @@ context('testing the twitter', function () {
 
     </section>
     <footer>
-      <div class="footer-text">Since 2020.</div>
+      <div class="footer-text">widescreenbob.com since 2020.</div>
       <script src="./js/addAltText.js"></script>
       <script src="./js/modal.js"></script>
     </footer>

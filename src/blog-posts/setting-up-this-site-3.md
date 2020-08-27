@@ -4,7 +4,9 @@ tags: post
 title: Creating this site with eleventy part 3
 post_title: Creating this site with eleventy part 3
 post_image: /img/11tyBlog.jpg
+post_teaser_image: /img/11tyBlog4x3.jpg
 date: 2020-05-31
+post_teaser: In part three of our site setup we look at images. We deal with some tech challenges with our images. We are going to look at improving our situation while knowing where we would like to get eventually.
 ---
 
 ### Images and image sizes.

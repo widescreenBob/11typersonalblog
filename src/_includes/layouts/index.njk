@@ -9,10 +9,14 @@ title: Index of my cool site
       <h2>Latest</h2>
       <ul class="homepage__blog-list">
       {%- for post in collections.post -%}
-        <li><h3 class="homepage__blog-title"><a href="{{ post.url }}">{{ post.data.post_title }}</a></h3>
-            <div class="homepage__blog-date"> {{ post.date.toDateString() }} </div>
-        </li>
+        {% if loop.revindex <=5 %}
+          <li><h3 class="homepage__blog-title"><a href="{{ post.url }}">{{ post.data.post_title }}</a></h3>
+              <div class="homepage__blog-date"> {{ post.date.toDateString() }} </div>
+          </li>
+        {% endif %}
       {%- endfor -%}
+        <li><h3 class="homepage__blog-title"><a href="/blogs/">See All Blog Posts</a></h3>
+        </li>
       </ul>
       <h2>Recent Projects</h2>
       <ul class="homepage__recent-pro-list">

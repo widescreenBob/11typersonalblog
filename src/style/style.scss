@@ -417,6 +417,7 @@ dialog {
 
 .post__image {
   margin: 2rem 0;
+  position: relative;
 
   img {
     width: 100%;
@@ -450,3 +451,103 @@ dialog {
   padding: 2rem 0;
 }
 
+.post__first-post {
+  border-bottom: 7px solid var(--site-blue);
+}
+
+.post__first-teaser {
+  margin: 2rem 0;
+}
+
+.post__first-data {
+  @include breakpoint($bp-md) {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.post__collection-list {
+  padding: 2rem 0 0;
+
+  @include breakpoint($bp-md) {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+// https://www.cssportal.com/css-ribbon-generator/
+.post__latest {
+  position: absolute;
+  left: -5px;
+  top: -6px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+
+  span {
+    background-color: var(--site-red);
+    color: var(--site-main);
+    font-weight: bold;
+    text-align: center;
+    transform: rotate(-45deg);
+    width: 100px;
+    display: block;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    left: -21px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      z-index: -1;
+      --site-red: #a54527;
+    }
+
+    &::before {
+      left: 0;
+      border-left: 3px solid var(--site-red);
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid var(--site-red);
+    }
+
+    &::after {
+      right: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid var(--site-red);
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid var(--site-red);
+    }
+  }
+}
+
+.post__collection-item {
+  display: flex;
+  margin: 1rem 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.post__collection-item--left {
+  flex: 1 1 30%;
+}
+
+.post__collection-item--right {
+  flex: 1 1 70%;
+  margin-left: 2rem;
+}
+
+.post__blog-title {
+  margin: 1rem 0;
+}

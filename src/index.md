@@ -1,7 +1,7 @@
 ---
 layout: layouts/index.njk
 title: Tobias Williams Site
-about_text: Welcome to my site... I am a Director of Development at Mediacurrent where I have worked for the last 7 years. Born in Wales, residing in North East Florida. Go Jags!
+about_text: Welcome to my site... I am a Director of Development at Mediacurrent where I have worked for the last 7 years. I love creating for the web, and learning new technologies.
 reading_list_proposed:
   - Leaders Eat Last - Simon Sinek
   - Good Authority - Jonathan Raymond

@@ -4,7 +4,9 @@ tags: post
 title: Creating this site with eleventy part 2
 post_title: Creating this site with eleventy part 2
 post_image: /img/11tyBlog.jpg
+post_teaser_image: /img/11tyBlog4x3.jpg
 date: 2020-05-27
+post_teaser: Part two of setting up the site. We'll look at how we complicated a simple tool. Adding tools that we are familiar with can keep our interest in continuing development.
 ---
 
 ### How I complicated a simple tool.

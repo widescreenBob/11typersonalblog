@@ -4,7 +4,9 @@ tags: post
 title: Cypress Testing Part Two
 post_title: Cypress Testing 2
 post_image: /img/cypressBlog.jpg
+post_teaser_image: /img/cypressBlog4x3.jpg
 date: 2020-08-10
+post_teaser: Part two of setting up Cypress Testing. In this one we get into making the tests run on a virtual localhost. We'll look at adding a git action to manage our task as it comes in to the version control.
 ---
 
 ### Upgrading Our Testing
@@ -31,7 +33,7 @@ This is the part that I was erroring on the most, what this is doing is installi
 Step three runs the cypress tests that we have defined.
 
 Here is what the successful test looks like in github:
-![Cypress Test](/img/cypresstestGH.png){width="70%"}{.post__blog-image}
+![Cypress Test](/img/cypresstestGH.png){width="100%"}{.post__blog-image}
 You can see that the tasks defined in our actions reflected here, and importantly that it passed.
 
 Ok, so now we have a way to test our code, against a temporary site pre merge. Now we can start expanding our testing.

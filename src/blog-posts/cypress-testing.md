@@ -4,7 +4,9 @@ tags: post
 title: Cypress Testing
 post_title: Cypress Testing
 post_image: /img/cypressBlog.jpg
+post_teaser_image: /img/cypressBlog4x3.jpg
 date: 2020-07-21
+post_teaser: Part one of adding a js testing solution. We look at cypress.io and see where this takes us.
 ---
 
 ### Adding testing using Cypress.io
@@ -20,10 +22,10 @@ As this had a node package, I was able to leverage our current set up to get thi
 So without retyping the entire docs, I got the dashboard working and I tied it to my git repo for this product.
 
 The cypress dashboard is pretty neat:
-![Cypress Dash](/img/cypressDash.png){width="70%"}{.post__blog-image}
+![Cypress Dash](/img/cypressDash.png){width="100%"}{.post__blog-image}
 
 Here you can see the tests we have written (more details soon). You can also specify what browser the tests are run in. Clicking the the test name will kick it off, and open the browser while it runs the tests in real time:
-![Cypress Test](/img/cypressTest.png){width="70%"}{.post__blog-image}
+![Cypress Test](/img/cypressTest.png){width="100%"}{.post__blog-image}
 
 To add tests, you use the cypress/integration folder.
 My test file lives [here](https://github.com/widescreenBob/11typersonalblog/blob/master/cypress/integration/social_test.js). Right now this test is testing all the social links, to make sure that each of them has the correct pathing.
@@ -51,6 +53,6 @@ context('testing the twitter', function () {
 
 So lets see what that looks like on a pr in git:
 
-![Cypress Git](/img/cypressGit.png){width="70%"}{.post__blog-image}
+![Cypress Git](/img/cypressGit.png){width="100%"}{.post__blog-image}
 
 You can see that cypress is part of our pre merge checks. This is a great start to our testing program. Right now, you can see our test isn't doing anything useful, as it is testing against the live site. So our next adventure will be extending this.

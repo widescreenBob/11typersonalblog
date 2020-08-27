@@ -4,7 +4,9 @@ tags: post
 title: Creating this site with eleventy
 post_title: Creating this site with eleventy
 post_image: /img/11tyBlog.jpg
+post_teaser_image: /img/11tyBlog4x3.jpg
 date: 2020-05-26
+post_teaser: Our first post. We are talking about setting up this site. Spoiler, it worked.
 ---
 
 ### What is eleventy?

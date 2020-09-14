@@ -531,6 +531,7 @@ dialog {
 .post__collection-item {
   display: flex;
   margin: 1rem 0;
+  align-items: center;
 
   img {
     width: 100%;
@@ -541,6 +542,7 @@ dialog {
 
 .post__collection-item--left {
   flex: 1 1 30%;
+  height: 200px;
 }
 
 .post__collection-item--right {

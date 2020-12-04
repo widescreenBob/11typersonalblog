@@ -4,7 +4,7 @@ tags: post
 title: CSS Custom Properties
 post_title: CSS Custom Properties
 post_image: /img/cssPropBlog.jpg
-post_teaser_image: /img/cssPropBlog.jpg4x3.jpg
+post_teaser_image: /img/cssPropBlog4x3.jpg
 date: 2020-09-13
 post_teaser: In this post I look at expanding on some CSS Custom Properties knowledge.
 ---

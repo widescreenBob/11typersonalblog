@@ -7,9 +7,11 @@ reading_list_proposed:
   - Good Authority - Jonathan Raymond
   - Appointment in Samarra - John O' HARA
 reading_list_current:
-  - The Three Body Problem - Liu Cixin
   - Turn the Ship Around! - L. David Marquet,
+  - In the Distance - Hernan Diaz
+  - Mycroft Holmes - Kareem Abdul-Jabbar
 reading_list_recent:
+- The Three Body Problem - Liu Cixin
 - Radical Candor - Kim Scott
 - The Managers Path - Fournier
 - Resilient Management - Lara Hogan
@@ -17,10 +19,11 @@ reading_list_recent:
 - The Unwritten Laws of Engineering - WJ King
 - The Self-Taught Programmer - Althoff, Cory
 quests_proposed:
-  - Mediacurrent Gatsby Course
-quests_current:
   - Gatsby Site with Netlify CMS
+quests_current:
+  - Wes Bos Gatsby / Node
 quests_recent:
+- Mediacurrent Gatsby Course
 - Cypress Testing
 - Gulp 4 secrets
 - Eleventy Static Site

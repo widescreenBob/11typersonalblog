@@ -1,9 +1,9 @@
-
 //Test all our social link
 describe('social links test', function () {
   beforeEach(function () {
     cy.visit('http://localhost:3000')
   })
+
 
   context('testing the twitter', function () {
     it('Checks to see if the twitter link contains the base url', function () {
@@ -48,3 +48,4 @@ describe('social links test', function () {
         .and('include', 'codepen.io')
     })
   })
+})
